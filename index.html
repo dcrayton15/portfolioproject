@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dante Crayton - Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #000;
+            white-space: nowrap;
+            animation: typewriter 4s steps(44) 1s 1 normal both,
+                       blink 1s steps(44) infinite normal;
+        }
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white font-['Inter']">
+    <header class="fixed w-full bg-white/80 backdrop-blur-sm z-50 transition-all duration-300" id="header">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">DC</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 transition-colors">
+                    Resume
+                </button>
+            </div>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center" id="menuBtn">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="fixed top-0 right-0 h-screen w-full bg-white transform translate-x-full transition-transform duration-300 z-40" id="mobileMenu">
+        <div class="p-6 space-y-6">
+            <div class="flex justify-end">
+                <button class="w-10 h-10 flex items-center justify-center" id="closeMenu">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <a href="#home" class="text-lg hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="text-lg hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="text-lg hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="text-lg hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="text-lg hover:text-primary transition-colors">Contact</a>
+                <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 transition-colors">
+                    Resume
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h1 class="text-5xl font-bold typewriter">
+                            Hi, I'm Dante Crayton.
+                        </h1>
+                        <h2 class="text-2xl text-gray-600">
+                            Frontend Developer | Software Engineer
+                        </h2>
+                        <p class="text-lg text-gray-600 max-w-lg">
+                            I love building visually appealing, user-friendly web experiences while keeping security in mind. 
+                            I specialize in HTML, CSS, JavaScript, and React, focusing on creating smooth, modern interfaces. With a strong understanding of cybersecurity best practices, I write clean, secure code to help protect user data and prevent vulnerabilities.
+                        </p>
+                        <div class="flex space-x-4">
+                            <button class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 transition-colors">
+                             <a href="#projects"> View Projects  </a>
+                            </button>
+                            <button class="border-2 border-primary text-primary px-8 py-3 !rounded-button hover:bg-primary/5 transition-colors">
+                              <a href="#contact">Contact Me </a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="images/code.jpg" 
+                             alt="Abstract Background"
+                             class="w-full h-auto rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-down">
+                    <i class="ri-arrow-down-line text-3xl text-primary"></i>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <img src="images/headshot.jpg" 
+                             alt="Dante Crayton"
+                             class="w-full h-auto rounded-2xl shadow-lg">
+                    </div>
+                    <div class="space-y-6">
+                        <p class="text-lg text-gray-600">
+                            With 2 years of self-taught programming experience in React, JavaScript, HTML, and CSS, 
+                            I'm passionate about building exceptional digital experiences that make a difference.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-6 bg-white rounded-xl shadow-sm">
+                                <div class="text-3xl font-bold text-primary">50+</div>
+                                <div class="text-gray-600">Projects Completed</div>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl shadow-sm">
+                                <div class="text-3xl font-bold text-primary">1000+</div>
+                                <div class="text-gray-600">Hours of Coding</div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold">Education</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <i class="ri-graduation-cap-line text-primary"></i>
+                                    <span>BS in Communications - University of Texas San Antonio</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="ri-graduation-cap-line text-primary"></i>
+                                    <span>Google's Cybersecurity Certification - Houston Community College</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="ri-book-line text-primary"></i>
+                                    <span>Junior Cybersecurity Analyst Certification - Cisco</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="ri-book-line text-primary"></i>
+                                    <span>Front-end Developer Certification - IBM</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="ri-book-line text-primary"></i>
+                                    <span>Back-End Developer Certification - IBM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Skills & Expertise</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-8">Technical Skills</h3>
+                        <div class="space-y-6">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Frontend Development</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full">
+                                    <div class="h-full w-[90%] bg-primary rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">React & React Native</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full">
+                                    <div class="h-full w-[85%] bg-primary rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">JavaScript</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full">
+                                    <div class="h-full w-[80%] bg-primary rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-8">Tools & Technologies</h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="p-4 bg-white rounded-xl shadow-sm flex flex-col items-center space-y-2">
+                                <i class="ri-html5-line text-3xl text-primary"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm flex flex-col items-center space-y-2">
+                                <i class="ri-css3-line text-3xl text-primary"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm flex flex-col items-center space-y-2">
+                                <i class="ri-javascript-line text-3xl text-primary"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm flex flex-col items-center space-y-2">
+                                <i class="ri-reactjs-line text-3xl text-primary"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm flex flex-col items-center space-y-2">
+                                <i class="ri-git-branch-line text-3xl text-primary"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm flex flex-col items-center space-y-2">
+                                <i class="ri-terminal-box-line text-3xl text-primary"></i>
+                                <span>Terminal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://public.readdy.ai/ai/img_res/f6b1026dc0e9c2318775dcc016ee7a1a.jpg" 
+                                 alt="Project 1"
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="space-x-4">
+                                    <a href="#" class="text-white hover:text-gray-200">
+                                        <i class="ri-eye-line text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-gray-200">
+                                        <i class="ri-github-line text-2xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">E-commerce Dashboard</h3>
+                            <p class="text-gray-600 mb-4">A modern dashboard for managing online store operations with real-time analytics.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">TypeScript</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">TailwindCSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://public.readdy.ai/ai/img_res/dc7015092f50d060b5ad22e809b302c6.jpg" 
+                                 alt="Project 2"
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="space-x-4">
+                                    <a href="#" class="text-white hover:text-gray-200">
+                                        <i class="ri-eye-line text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-gray-200">
+                                        <i class="ri-github-line text-2xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Social Media App</h3>
+                            <p class="text-gray-600 mb-4">A React Native social media application with real-time messaging.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React Native</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Firebase</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://public.readdy.ai/ai/img_res/dab5657bd8e0ca92e30193c9918d04cd.jpg" 
+                                 alt="Project 3"
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="space-x-4">
+                                    <a href="#" class="text-white hover:text-gray-200">
+                                        <i class="ri-eye-line text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-gray-200">
+                                        <i class="ri-github-line text-2xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Weather App</h3>
+                            <p class="text-gray-600 mb-4">A weather forecast application with beautiful visualizations.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">D3.js</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Get In Touch</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <form class="space-y-6" id="contactForm">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 transition-colors">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="ri-mail-line text-primary"></i>
+                                    </div>
+                                    <span>craytondante@yahoo.com</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="ri-map-pin-line text-primary"></i>
+                                    </div>
+                                    <span>Houston, TX</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4">Follow Me</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                    <i class="ri-github-line text-primary"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/dante-crayton-73ab0864/" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                    <i class="ri-linkedin-line text-primary"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Dante Crayton</h3>
+                    <p class="text-gray-400">Frontend Developer & Software Engineer</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-github-line text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dante-crayton-73ab0864/" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-linkedin-line text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Dante Crayton. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-pointer">
+        <i class="ri-arrow-up-line text-2xl"></i>
+    </button>
+
+    <div id="notification" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg transform translate-x-full transition-transform duration-300">
+        Message sent successfully!
+    </div>
+
+    <script>
+        const header = document.getElementById('header');
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const backToTop = document.getElementById('backToTop');
+        const contactForm = document.getElementById('contactForm');
+        const notification = document.getElementById('notification');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0');
+            } else {
+                backToTop.classList.add('opacity-0');
+            }
+        });
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    if (mobileMenu.classList.contains('translate-x-0')) {
+                        mobileMenu.classList.add('translate-x-full');
+                    }
+                }
+            });
+        });
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            notification.classList.remove('translate-x-full');
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+            }, 3000);
+            contactForm.reset();
+        });
+
+        const skillsChart = echarts.init(document.getElementById('skillsChart'));
+        const skillsOption = {
+            animation: false,
+            radar: {
+                indicator: [
+                    { name: 'HTML/CSS', max: 100 },
+                    { name: 'JavaScript', max: 100 },
+                    { name: 'React', max: 100 },
+                    { name: 'TypeScript', max: 100 },
+                    { name: 'Node.js', max: 100 }
+                ]
+            },
+            series: [{
+                type: 'radar',
+                data: [{
+                    value: [90, 85, 85, 80, 75],
+                    name: 'Skills',
+                    itemStyle: {
+                        color: '#3B82F6'
+                    },
+                    areaStyle: {
+                        color: 'rgba(59, 130, 246, 0.1)'
+                    }
+                }]
+            }]
+        };
+        skillsChart.setOption(skillsOption);
+
+        window.addEventListener('resize', () => {
+            skillsChart.resize();
+        });
+    </script>
+</body>
+</html>
